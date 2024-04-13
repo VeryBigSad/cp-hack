@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  cp_api:
+    container_name: cp_api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8000:80
+  cp_db:
+    container_name: cp_db
+    image: postgres:16.1-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - 5432:5432
+
