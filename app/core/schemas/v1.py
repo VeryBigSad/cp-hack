@@ -27,5 +27,3 @@ class ClassifyResponse(BaseModel):
 
 class SimilarImagesResponse(BaseModel):
     probabilities: List[ImageProbabilityModel]
-
-

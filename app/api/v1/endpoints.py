@@ -1,7 +1,6 @@
 import logging
 
-from core.schemas.v1 import (CaptionResponse, ClassifyResponse,
-                             SimilarImagesResponse)
+from core.schemas.v1 import CaptionResponse, ClassifyResponse, SimilarImagesResponse
 from fastapi import APIRouter, status
 
 logger = logging.getLogger(__name__)
@@ -27,7 +26,7 @@ async def similar_images(
                 "probability": 0.69,
                 "name": "Картина 1",
                 "category": "Категория 1",
-                "description": "Егор лох"
+                "description": "Егор лох",
             },
             {
                 "image_id": 23423445,
@@ -35,7 +34,7 @@ async def similar_images(
                 "probability": 0.43,
                 "name": "Картина 2",
                 "category": "Категория 2",
-                "description": "Егор лох 2"
+                "description": "Егор лох 2",
             },
             {
                 "image_id": 34343433,
@@ -43,7 +42,7 @@ async def similar_images(
                 "probability": 0.21,
                 "name": "Картина 3",
                 "category": "Категория 3",
-                "description": "Егор лох 3"
+                "description": "Егор лох 3",
             },
         ]
     }
@@ -60,17 +59,10 @@ async def classify_images(
     """Classify images, get list of category/category change"""
     return {
         "probabilities": [
-            {
-                "category": "Оружие",
-                "probability": 0.43
-            },
-            {
-                "category": "Картины",
-                "probability": 0.56
-            },
+            {"category": "Оружие", "probability": 0.43},
+            {"category": "Картины", "probability": 0.56},
         ]
     }
-
 
 
 @router.post(
@@ -82,7 +74,4 @@ async def generate_image_caption(
     image_id: int,
 ):
     """Generate image caption. Returns caption text"""
-    return {
-        "text": "lolkys"
-    }
-
+    return {"text": "lolkys"}

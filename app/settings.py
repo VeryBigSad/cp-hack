@@ -11,7 +11,9 @@ logging.basicConfig(format="%(asctime)s - %(name)s - %(levelname)s - %(message)s
 root_logger = logging.getLogger()
 root_logger.removeHandler(*root_logger.handlers)
 consoleHandler = logging.StreamHandler()
-consoleHandler.setFormatter(logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s"))
+consoleHandler.setFormatter(
+    logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+)
 root_logger.addHandler(consoleHandler)
 
 _logger = logging.getLogger(__name__)
