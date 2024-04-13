@@ -13,7 +13,7 @@ class User(Model):
 
 class UploadedImage(Model):
     class Meta:
-        table = 'uploaded_images'
+        table = "uploaded_images"
 
     id = fields.BigIntField(pk=True)
     url = fields.CharField(max_length=1024)
