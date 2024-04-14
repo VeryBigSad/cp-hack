@@ -16,5 +16,10 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: postgres
     ports:
-      - 5432:5432
+      - 16432:5432
+  cp_redis:
+    container_name: cp_redis
+    image: redis:7.2.4-alpine
+    ports:
+      - 16379:6379
 

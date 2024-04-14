@@ -22,9 +22,16 @@ class S3ConfigsModel(BaseModel):
     S3_ENDPOINT: Union[str]
 
 
+class RedisConfigsModel(BaseModel):
+    REDIS_HOST: str
+    REDIS_PORT: int
+    REDIS_DATABASE: int
+
+
 class ConfigsValidator(
     PostgresDataBaseConfigsModel,
     MetaConfigsModel,
     S3ConfigsModel,
+    RedisConfigsModel,
 ):
     pass

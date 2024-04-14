@@ -16,7 +16,6 @@ async def upload_image_to_s3(image: BytesIO, object_name: str) -> str | None:
     )
     async with session.client("s3", endpoint_url=config_parameters.S3_ENDPOINT) as s3:
         try:
-            # make file public
             await s3.upload_fileobj(
                 image,
                 config_parameters.S3_BUCKET_NAME,
