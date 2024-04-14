@@ -1,13 +1,6 @@
 version: '3.8'
 
 services:
-  cp_api:
-    container_name: cp_api
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - 8000:80
   cp_db:
     container_name: cp_db
     image: postgres:16.1-alpine
@@ -17,9 +10,31 @@ services:
       POSTGRES_DB: postgres
     ports:
       - 16432:5432
+
   cp_redis:
     container_name: cp_redis
     image: redis:7.2.4-alpine
     ports:
       - 16379:6379
+
+  cp_api:
+    container_name: cp_api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8000:80
+    depends_on:
+      - cp_db
+      - cp_redis
+
+  cp_frontend:
+    container_name: cp_frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8501
+    depends_on:
+      - cp_api
 
